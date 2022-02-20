@@ -13,17 +13,21 @@ def NewwindM():
     global messagebar
     global newwin
     global listbox
+    
     newwin=tk.Toplevel(root)
-    newwin.geometry("180x220")
+    newwin.geometry("250x250")
+    newwin.config(bg="#282828")
+    newwin.attributes("-alpha", 0.90)
     newwin.iconbitmap(link)
-    messagebar=tk.Entry(newwin,bg='light grey')
-    messagebar.pack()
-    mess=messagebar.get()
-    enter=Button(newwin,bg='light grey',text='Enter',command=MSG)
-    enter.pack()
     scrollbar = Scrollbar(newwin)
     scrollbar.pack(side=RIGHT, fill=Y)
-    listbox = Listbox(newwin)
+    messagebar=tk.Entry(newwin,bg="#282828",fg="white")
+    messagebar.pack()
+    mess=messagebar.get()
+    enter=Button(newwin,text='Enter',command=MSG, font="Geneva 25 bold",activebackground="#282828",highlightbackground="#282828",activeforeground='black',fg='black')
+    enter.pack()
+    
+    listbox = Listbox(newwin,)
     listbox.pack()
     listbox.config(yscrollcommand=scrollbar.set)
     scrollbar.config(command=listbox.yview)
@@ -32,7 +36,6 @@ def NewwindM():
 def MSG():
     global listbox
     enc=["fdg","asd","wad","ads","ase","hfd","ere","yrh","sea"]
-    
     mess=messagebar.get()
     msg=''
     
@@ -46,11 +49,13 @@ def NewwindD():
     global newwin2
     global messagebar2
     newwin2=tk.Toplevel(root)
-    newwin2.geometry("300x70")
+    newwin2.geometry("250x100")
+    newwin2.config(bg="#282828")
+    newwin2.attributes("-alpha", 0.90)
     newwin2.iconbitmap(link)
-    messagebar2=tk.Entry(newwin2,bg='light grey')
+    messagebar2=tk.Entry(newwin2,bg="#282828",fg="white")
     messagebar2.pack()
-    enter1=Button(newwin2,bg='light grey',text='Enter',command=Decode)
+    enter1=Button(newwin2,bg='light grey',text='Enter',command=Decode, font="Geneva 25 bold",activebackground="#282828",highlightbackground="#282828",activeforeground='black',fg='black')
     enter1.pack()
     
     
@@ -61,7 +66,7 @@ def Decode():
         x=((x)*4)
         msg=((msg)+(enter[x]))
         endmsg=Label(newwin2,bg='light grey',text=(msg.strip()))
-        endmsg.place(x=70,y=50)
+        endmsg.place(x=100,y=70)
             
 def Exit():
     sys.exit()
@@ -70,17 +75,19 @@ root=Tk()
 root.title("Decoder")
 link=r'icon.ico'
 root.iconbitmap(link)
-root.geometry("250x100")
-title=tk.Label(root,bg='light grey',text="Welcome to the Decoder")
+root.geometry("380x200")
+root.config(bg="#282828")
+root.attributes("-alpha", 0.90)
+title=tk.Label(root,text="Welcome to the Decoder",fg="white", font="Geneva 30 bold",bg="#282828")
 title.pack()
 
-write=Button(root,bg='light grey',text="Writing message",command=NewwindM)
+write=Button(root,text="Writing message",command=NewwindM, font="Geneva 25 bold",highlightbackground="#282828",activeforeground='black',fg='white')
 write.pack()
 
-decode=Button(root,bg='light grey',text="Decoder",command=NewwindD)
+decode=Button(root,text="Decoder",command=NewwindD, font="Geneva 25 bold",highlightbackground="#282828",activeforeground='black',fg='white')
 decode.pack()
 
-exit=Button(root,bg='light grey',text="Exit", command=Exit)
+exit=Button(root,text="Exit", command=Exit, font="Geneva 25 bold",highlightbackground="#282828",activeforeground='black',fg='white')
 exit.pack()
 
 root.mainloop()
