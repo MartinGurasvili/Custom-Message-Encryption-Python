@@ -1,4 +1,4 @@
-# Custom-encryption-decryption-python
+# Custom Message Encryption Python
 This is a UI based simple custom made encryption and decryption program written in python
 <img width="492" alt="Screenshot 2022-02-20 at 12 54 54 am" src="https://user-images.githubusercontent.com/76784461/154824248-d48d6278-94f0-45b9-b9dd-8b0348749d1f.png">
 
